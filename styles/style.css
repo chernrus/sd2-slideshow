@@ -1,0 +1,112 @@
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.slide {
+    background-image: url("../images/bg.png");
+    background-position: center;
+    background-size: cover; */
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+p {
+    font-size: 18px;
+    font-family: "Lato";
+    font-weight: normal;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.slide__navigation {
+    position: fixed;
+    bottom: 50%;
+    right: 10px;
+}
+
+.slide > section {
+    height: 768px;
+}
+
+.slide__first {
+    position: relative;
+}
+
+.slide__second {
+    position: relative;
+}
+
+.slide__third {
+}
+
+.slide__title {
+    position: absolute;
+    font-size: 48px;
+    font-family: "GothamPro";
+    font-weight: normal;
+    color: rgb(13, 49, 156);
+    line-height: 1.2;
+    text-align: left;
+    left: 70px;
+    top: 140px;
+    width: 600px;
+    z-index: 37;
+}
+
+.slide__text-gypo,
+.slide__text-complications,
+.slide__text-risks {
+    position: absolute;
+    color: rgb(13, 49, 156);
+}
+
+.slide__text-gypo {
+    left: 224.541px;
+    top: 392.589px;
+}
+
+.slide__text-complications {
+    left: 372.908px;
+    top: 504.589px;
+}
+
+.slide__text-risks {
+    left: 793.391px;
+    top: 484.589px;
+}
+
+.slide__text-goal {
+    left: 629.045px;
+    top: 274.089px;
+}
+
+.slide__second-ice1 {
+    position: absolute;
+    top: 361px;
+    left: 82px;
+}
+
+.slide__second-ice2 {
+    position: absolute;
+    top: 643px;
+    left: 232px;
+}
+
+.slide__second-ice3 {
+    position: absolute;
+    top: 773px;
+    left: 701px;
+}
+
+.slide__second-ice4 {
+    position: absolute;
+    top: 227px;
+    left: 870px;
+}
