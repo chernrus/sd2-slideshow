@@ -31,6 +31,48 @@ p {
     right: 10px;
 }
 
+.slide__page-down {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.slide__page-down-text {
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    bottom: 36px;
+}
+
+.slide__page-down-arrow {
+    position: absolute;
+    bottom: 21px;
+    width: 100%;
+    height: 25px;
+    display: inline-block;
+    background: url(/images/arrow_page_down.png) no-repeat;
+    background-position: center;
+}
+
+.slide__page-down-circle {
+    position: absolute;
+    width: 100%;
+    height: 92px;
+    bottom: 0;
+    background: url(/images/ellipse.png) no-repeat;
+    background-position: center;
+}
+
+.slide__page-down-rectangle {
+    position: absolute;
+    width: 100%;
+    height: 109px;
+    bottom: 0;
+    background: url(/images/rectangle.png) no-repeat;
+    background-position: center;
+}
+
 .slide > section {
     height: 768px;
 }
@@ -44,6 +86,11 @@ p {
 }
 
 .slide__third {
+}
+
+.slide__first > p {
+    padding: 0;
+    margin: 0;
 }
 
 .slide__title {
@@ -62,7 +109,8 @@ p {
 
 .slide__text-gypo,
 .slide__text-complications,
-.slide__text-risks {
+.slide__text-risks,
+.slide__text-goal {
     position: absolute;
     color: rgb(13, 49, 156);
 }
@@ -89,24 +137,196 @@ p {
 
 .slide__second-ice1 {
     position: absolute;
+    width: 41px;
+    height: 38px;
+    background: url('/images/sld2/ice1.png') no-repeat;
+    background-size: auto;
     top: 361px;
     left: 82px;
 }
 
+
 .slide__second-ice2 {
     position: absolute;
+    width: 103px;
+    height: 102px;
+    background: url('/images/sld2/ice2.png') no-repeat;
+    background-size: auto;
     top: 643px;
     left: 232px;
 }
 
 .slide__second-ice3 {
     position: absolute;
+    width: 97px;
+    height: 98px;
+    background: url('/images/sld2/ice3.png') no-repeat;
+    background-size: auto;
     top: 773px;
     left: 701px;
 }
 
 .slide__second-ice4 {
     position: absolute;
+    /* width: 221px; */
+    width: 154px;
+    height: 218px;
+    background: url('/images/sld2/ice4.png') no-repeat;
+    background-size: auto;
     top: 227px;
     left: 870px;
 }
+
+.tab {
+    color: #fff;
+    position: relative;
+    width: 1024px;
+    height: 768px;
+}
+
+/* THIRD SLIDE FIRST TAB */
+
+.slide__third-title {
+    font-size: 30px;
+}
+
+.scheme {
+    width: 584px;
+    height: 330px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-end;
+}
+
+.scheme__elem.betacells {
+    flex: 1 100%;
+    position: relative;
+}
+
+.scheme__elem.musle {
+    order: 1;
+    margin-right: 60px;
+}
+
+.scheme__elem.liver {
+    order: 3;
+    margin-left: 60px;
+}
+
+.scheme__rectangle {
+    width: 245px;
+    height: 90px;
+    border: 1px solid;
+    position: relative;
+    order: 2;
+    flex: 2;
+}
+
+.scheme__elem {
+    width: 110px;
+    height: 170px;
+    text-align: center;
+    position: relative;
+}
+
+.scheme__number {
+    font-size: 36px;
+}
+
+.scheme__elem-title {
+    font-size: 22px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.scheme__circle {
+    width: 82px;
+    height: 82px;
+    margin: 0 auto;
+    border-radius: 50px;
+    background-color: rgb(255, 255, 255, 0.1);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.musle > .scheme__circle {
+    background-image: url("/images/sld3/musle.png");
+}
+
+.liver > .scheme__circle {
+    background-image: url("/images/sld3/liver.png");
+    background-position: 60% 60%;
+}
+
+.scheme__circle-text {
+    font-size: 66px;
+    line-height: 70px;
+}
+
+.scheme__rectangle-text {
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.arrow__1-to-2 {
+    width: 4px;
+    height: 200px;
+    position: absolute;
+    background: url(/images/sld3/arrow.png) no-repeat;
+    background-position: bottom;
+    transform: rotate(45deg);
+    left: 173px;
+    bottom: -145px;
+}
+
+.arrow__1-to-3 {
+    width: 4px;
+    height: 200px;
+    position: absolute;
+    background: url(/images/sld3/arrow.png) no-repeat;
+    background-position: bottom;
+    transform: rotate(-45deg);
+    right: 173px;
+    bottom: -145px;
+}
+
+.arrow__1-to-rectangle {
+    width: 4px;
+    height: 60px;
+    position: absolute;
+    background: url(/images/sld3/arrow.png) no-repeat;
+    background-position: bottom;
+    right: 50%;
+    bottom: -70px;
+}
+
+.arrow__2-to-rectangle {
+    width: 4px;
+    height: 60px;
+    position: absolute;
+    background: url(/images/sld3/arrow.png) no-repeat;
+    background-position: bottom;
+    transform: rotate(-90deg);
+    bottom: 10px;
+    right: -26px;
+}
+
+.arrow__3-to-rectangle {
+    width: 4px;
+    height: 60px;
+    position: absolute;
+    background: url(/images/sld3/arrow.png) no-repeat;
+    background-position: bottom;
+    transform: rotate(90deg);
+    bottom: 10px;
+    left: -26px;
+}
+/* END THIRD SLIDE FIRST TAB */
