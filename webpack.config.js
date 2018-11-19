@@ -4,7 +4,8 @@ module.exports = {
     mode: 'development',
     entry: './src/index.js',
     output: {
-        filename: 'build.js'
+        filename: 'build.js',
+		library: 'slider'
     },
     watch: true
 };

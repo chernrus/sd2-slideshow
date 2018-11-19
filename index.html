@@ -2,26 +2,60 @@
 <html lang="ru" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>СД2</title>
         <link rel="stylesheet" href="/styles/style.css">
     </head>
     <body>
         <div class="slide">
             <section id="slide-1" class="slide__first">
                 <h1 class="slide__title">Всегда ли цели терапии СД2 на поверхности?</h1>
-                <p class="slide__text-gypo">Гипогликемия</p>
-                <p class="slide__text-complications">Осложнения СД</p>
-                <p class="slide__text-goal">Цель по HbA1c</p>
-                <p class="slide__text-risks">СС риски</p>
+                <div class="slide__text-gypo">
+                    <p>Гипогликемия</p>
+                    <div class="pulse-point__container">
+                        <span class="pulse-point__ring1"></span>
+                        <span class="pulse-point__ring2"></span>
+                        <span class="pulse-point__ring3"></span>
+                        <span class="pulse-point__ring4"></span>
+                    </div>
+                </div>
+                <div class="slide__text-complications">
+                    <p>Осложнения СД</p>
+                    <div class="pulse-point__container">
+                        <span class="pulse-point__ring1"></span>
+                        <span class="pulse-point__ring2"></span>
+                        <span class="pulse-point__ring3"></span>
+                        <span class="pulse-point__ring4"></span>
+                    </div>
+                </div>
+                <div class="slide__text-goal">
+                    <p>Цель по HbA1c</p>
+                    <div class="pulse-point__container">
+                        <span class="pulse-point__ring1"></span>
+                        <span class="pulse-point__ring2"></span>
+                        <span class="pulse-point__ring3"></span>
+                        <span class="pulse-point__ring4"></span>
+                    </div>
+                </div>
+                <div class="slide__text-risks">
+                    <p>СС риски</p>
+                    <div class="pulse-point__container">
+                        <span class="pulse-point__ring1"></span>
+                        <span class="pulse-point__ring2"></span>
+                        <span class="pulse-point__ring3"></span>
+                        <span class="pulse-point__ring4"></span>
+                    </div>
+                </div>
 
             </section>
 
             <section id="slide-2" class="slide__second">
-                <h1 class="slide__second-title">Основа терапии - патогенез СД2</h1>
-                <div class="slide__second-ice1 ice-parallax"></div>
-                <div class="slide__second-ice2 ice-parallax"></div>
-                <div class="slide__second-ice3 ice-parallax"></div>
-                <div class="slide__second-ice4 ice-parallax"></div>
+                <div class="slide__second-wrapper">
+                    <h1 class="slide__second-title">Основа терапии — патогенез СД2</h1>
+                    <div class="slide__second-ice1 ice-parallax"></div>
+                    <div class="slide__second-ice2 ice-parallax"></div>
+                    <div class="slide__second-ice3 ice-parallax"></div>
+                    <div class="slide__second-ice4 ice-parallax"></div>
+                </div>
             </section>
             <section id="slide-3" class="slide__third">
                 <div class="slide__third-wrapper">
@@ -54,10 +88,10 @@
                                 <div class="scheme__circle"></div>
                                 <span class="arrow__3-to-rectangle"></span>
                             </div>
-
-
-
                         </div>
+                        <div class="tab1__ice1"></div>
+                        <div class="tab1__ice2"></div>
+                        <div class="tab1__ice3"></div>
                     </div>
                     <div class="tab tab2">
                         <h2 class="tab__title">Смертельный октет</h2>
@@ -128,19 +162,23 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="tab2__ice1"></div>
+                        <div class="tab2__ice2"></div>
+                        <div class="tab2__ice3"></div>
                     </div>
                     <div class="tab tab3">
-
+                        <h2 class="tab__title">Звенья патогенеза СД2</h2>
+                        <div class="tab3__ice1"></div>
+                        <div class="tab3__ice2"></div>
+                        <div class="tab3__ice3"></div>
                     </div>
-
                 </div>
-                <!-- <input type="range" min="0" max="100" step="50" value="0" class="slider" id="rangeSlider"> -->
-                <div class="slidershell" id="slidershell1">
-                    <div class="sliderfill" id="sliderfill1"></div>
-                    <div class="slidertrack" id="slidertrack1"></div>
-                    <div class="sliderthumb" id="sliderthumb1"></div>
-                    <input class="slider" id="slider1" type="range" min="0" max="100" value="0"
-                    oninput="showValue(value,1,true);" onchange="showValue(value,1,false);"/>
+                <div class="slidershell" id="slidershell">
+                    <div class="sliderfill" id="sliderfill"></div>
+                    <div class="slidertrack" id="slidertrack"></div>
+                    <div class="sliderthumb" id="sliderthumb"></div>
+                    <input class="slider" id="slider" type="range" min="0" max="100" value="0"
+                    oninput="slider.showValue(value,true);" onchange="slider.showValue(value,false);"/>
                     <div class="slidershell__years">
                         <span class="slidershell__years-number">1988</span>
                         <span class="slidershell__years-number">2009</span>
@@ -150,9 +188,9 @@
 
             </section>
             <nav class="slide__navigation">
-                <a href="#slide-1">1</a>
-                <a href="#slide-2">2</a>
-                <a href="#slide-3">3</a>
+                <a href="#slide-1"></a>
+                <a href="#slide-2"></a>
+                <a href="#slide-3"></a>
             </nav>
             <!-- <div class="slide__page-down">
                 <p class="slide__page-down-text">Листайте вниз</p>
@@ -161,6 +199,6 @@
                 <span class="slide__page-down-arrow"></span>
             </div> -->
         </div>
-    <script src="/src/index.js" charset="utf-8"></script>
+    <script src="/dist/build.js"></script>
     </body>
 </html>
