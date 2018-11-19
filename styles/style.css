@@ -5,6 +5,10 @@ body {
     padding: 0;
 }
 
+*{
+    box-sizing: border-box;
+}
+
 .slide {
     background-image: url("../images/bg.png");
     background-position: center;
@@ -86,6 +90,7 @@ p {
 }
 
 .slide__third {
+    position: relative;
 }
 
 .slide__first > p {
@@ -177,12 +182,123 @@ p {
     left: 870px;
 }
 
+.slide__third-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    overflow-x: hidden;
+}
+
 .tab {
     color: #fff;
     position: relative;
     width: 1024px;
     height: 768px;
+    flex: 0 0 100%;
 }
+
+/* SLIDER */
+
+.slider {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    overflow: visible;
+    z-index: 100;
+}
+
+/* slidershell exists only
+to provide a positioning context for the range input and other elements.*/
+.slidershell {
+    border: 0 none;
+    position: absolute;
+    left: 192px;
+    bottom: 86px;
+    overflow: visible;
+}
+
+/* .slidertrack is the visible track on which the user drags the thumb button. */
+.slidertrack {
+    position: absolute;
+    background: #ccffff;
+    opacity: 0.3;
+}
+
+/* .sliderfill adds color (or a gradient as seen here) to the track as the user
+    drags the thumb. */
+.sliderfill {
+    position: absolute;
+    pointer-events: none;
+    background: #ccffff;
+    border: 1px solid;
+    border-color: rgba(209, 234, 255, 0.3);
+}
+
+/* .sliderthumb can be any css you like including an image.
+    The dimensions must match those found in the rule for
+    input[type=range]::-webkit-slider-thumb. */
+.sliderthumb {
+    width: 43px;
+    height: 56px;
+    background-image: url("/images/sld3/slider.png");
+    background-size: 43px 56px;
+    background-position: 0px -5px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    border: 0 none;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    pointer-events: none;
+}
+
+
+/* First we have to make transparent all the default elements of the range input.
+    We use color:transparent to eliminate the default tick marks in IE. */
+
+input[type=range] {
+    width:100%;
+    height:100%;
+    -webkit-appearance:none;
+    margin:0px;
+    padding:0px;
+    border:0 none;
+    background:transparent;
+    color:transparent;
+    overflow:visible;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background:transparent;
+    border:transparent;
+}
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    width:40px;
+    height:40px;
+    border-radius:0px;
+    border:0 none;
+    background:transparent;
+    -webkit-appearance:none;
+}
+
+.slidershell__years {
+    position: absolute;
+    bottom: -62px;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+/* SLIDER END*/
 
 /* THIRD SLIDE FIRST TAB */
 
@@ -190,7 +306,7 @@ p {
     font-size: 30px;
 }
 
-.scheme {
+.tab1 > .scheme {
     width: 584px;
     height: 330px;
     position: absolute;
@@ -203,26 +319,35 @@ p {
     align-items: flex-end;
 }
 
-.scheme__elem.betacells {
+.tab1 .scheme__elem.betacells {
     flex: 1 100%;
     position: relative;
 }
 
-.scheme__elem.musle {
+.tab1 .scheme__elem.musle {
     order: 1;
     margin-right: 60px;
 }
 
-.scheme__elem.liver {
+.scheme__elem {
+    display: flex;
+    flex-flow: column;
+
+}
+
+.tab1 .scheme__elem.liver {
     order: 3;
     margin-left: 60px;
 }
 
 .scheme__rectangle {
-    width: 245px;
-    height: 90px;
     border: 1px solid;
     position: relative;
+}
+
+.tab1 .scheme__rectangle {
+    width: 245px;
+    height: 90px;
     order: 2;
     flex: 2;
 }
@@ -241,7 +366,7 @@ p {
 .scheme__elem-title {
     font-size: 22px;
     text-align: center;
-    margin: 10px auto;
+    margin: 0px auto 5px;
 }
 
 .scheme__circle {
@@ -263,9 +388,11 @@ p {
     background-position: 60% 60%;
 }
 
+
 .scheme__circle-text {
     font-size: 66px;
     line-height: 70px;
+    font-weight: bold;
 }
 
 .scheme__rectangle-text {
@@ -276,7 +403,7 @@ p {
     transform: translate(-50%, -50%);
 }
 
-.arrow__1-to-2 {
+.tab1 .arrow__1-to-2 {
     width: 4px;
     height: 200px;
     position: absolute;
@@ -287,7 +414,7 @@ p {
     bottom: -145px;
 }
 
-.arrow__1-to-3 {
+.tab1 .arrow__1-to-3 {
     width: 4px;
     height: 200px;
     position: absolute;
@@ -298,7 +425,7 @@ p {
     bottom: -145px;
 }
 
-.arrow__1-to-rectangle {
+.tab1 .arrow__1-to-rectangle {
     width: 4px;
     height: 60px;
     position: absolute;
@@ -308,7 +435,7 @@ p {
     bottom: -70px;
 }
 
-.arrow__2-to-rectangle {
+.tab1 .arrow__2-to-rectangle {
     width: 4px;
     height: 60px;
     position: absolute;
@@ -319,7 +446,7 @@ p {
     right: -26px;
 }
 
-.arrow__3-to-rectangle {
+.tab1 .arrow__3-to-rectangle {
     width: 4px;
     height: 60px;
     position: absolute;
@@ -330,3 +457,246 @@ p {
     left: -26px;
 }
 /* END THIRD SLIDE FIRST TAB */
+
+/* THIRD SLIDE SECOND TAB */
+
+.tab2 > .scheme {
+    width: 810px;
+    height: 520px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.tab2 .scheme__circle {
+    width: 60px;
+    height: 60px;
+}
+
+.lipocells > .scheme__circle {
+    background-image: url("/images/sld3/lipid.png");
+}
+.brain > .scheme__circle {
+    background-image: url("/images/sld3/brain.png");
+}
+.renal > .scheme__circle {
+    background-image: url("/images/sld3/renal.png");
+}
+
+.tab2 .musle > .scheme__circle {
+    background-size: 56px 36px;
+}
+
+.tab2 .liver > .scheme__circle {
+    background-size: 45px 40px;
+}
+
+.tab2 .scheme__rectangle {
+    width: 386px;
+    height: 141px;
+    order: 5;
+    margin: 30px 40px;
+    height: 130px;
+}
+
+.tab2 .scheme__elem.betacells {
+    order: 2;
+    justify-content: flex-end;
+}
+
+.tab2 .scheme__elem.effect,
+.tab2 .scheme__elem.defect {
+    display: flex;
+    flex-flow: row;
+    width: 210px;
+    height: 60px;
+}
+
+.tab2 .scheme__elem.effect > .scheme__elem-title,
+.tab2 .scheme__elem.defect > .scheme__elem-title {
+    font-size: 20px;
+    width: 140px;
+}
+
+.tab2 .scheme__elem.effect .scheme__circle-text,
+.tab2 .scheme__elem.defect .scheme__circle-text {
+    font-size: 36px;
+    font-weight: lighter;
+}
+
+.tab2 .scheme__elem.defect > .scheme__circle,
+.tab2 .scheme__elem.effect > .scheme__elem-title{
+    order: 1;
+}
+
+.tab2 .scheme__elem.effect > .scheme__circle,
+.tab2 .scheme__elem.defect > .scheme__elem-title{
+    order: 2;
+}
+
+.tab2 .scheme__elem.defect > .scheme__elem-title {
+    text-align: left;
+}
+
+.tab2 .scheme__elem.effect > .scheme__elem-title{
+    text-align: right;
+}
+
+
+.tab2 .scheme__elem.effect .scheme__circle-text,
+.tab2 .scheme__elem.defect .scheme__circle-text,
+.tab2 .scheme__elem.betacells .scheme__circle-text {
+    line-height: 60px;
+    text-align: center;
+}
+
+.tab2 .scheme__elem.effect {
+    order: 1;
+    margin-right: 70px;
+}
+
+.tab2 .scheme__elem.defect {
+    order: 3;
+    margin-left: 70px;
+}
+
+.tab2 .scheme__elem.lipocells,
+.tab2 .scheme__elem.renal{
+    width: 170px;
+    height: 100px;
+    display: flex;
+    flex-flow: row wrap;
+    align-self: center;
+    margin-top: 60px;
+}
+
+.tab2 .scheme__elem.lipocells {
+    order: 6;
+    text-align: left;
+    /* margin-left: 40px; */
+}
+
+.tab2 .scheme__elem.renal {
+    order: 4;
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.tab2 .lipocells .scheme__elem-title {
+    text-align: left;
+}
+.tab2 .renal .scheme__elem-title {
+    text-align: left;
+}
+
+.tab2 .lipocells .scheme__elem-wrap {
+    max-width: 80px;
+    order: 2;
+}
+
+.tab2 .scheme__elem-wrap .scheme__number{
+    line-height: 55px;
+}
+
+.tab2 .lipocells .scheme__circle {
+    order: 1;
+}
+
+.tab2 .renal .scheme__circle  {
+    margin: 0 0 0 10px;
+}
+
+.tab2 .lipocells .scheme__circle {
+    margin: 0 10px 0 0;
+}
+
+.tab2 .scheme__elem.musle {
+    order: 9;
+}
+
+.tab2 .scheme__elem.liver {
+    order: 8;
+
+}
+
+.tab2 .scheme__elem.brain {
+    order: 7;
+}
+
+.tab2 .scheme__elem.musle > .scheme__circle,
+.tab2 .scheme__elem.liver > .scheme__circle,
+.tab2 .scheme__elem.brain > .scheme__circle {
+    order: 1;
+}
+
+.tab2 .scheme__elem.musle > .scheme__number,
+.tab2 .scheme__elem.liver > .scheme__number,
+.tab2 .scheme__elem.brain > .scheme__number {
+    order: 2;
+}
+
+.tab2 .scheme__elem.musle > .scheme__elem-title,
+.tab2 .scheme__elem.liver > .scheme__elem-title,
+.tab2 .scheme__elem.brain > .scheme__elem-title {
+    order: 3;
+}
+
+.tab2 .scheme__circle {
+    position: relative;
+}
+
+.tab2 .arrow__1-to-rectangle,
+.tab2 .arrow__2-to-rectangle,
+.tab2 .arrow__3-to-rectangle,
+.tab2 .arrow__4-to-rectangle,
+.tab2 .arrow__5-to-rectangle,
+.tab2 .arrow__6-to-rectangle,
+.tab2 .arrow__7-to-rectangle,
+.tab2 .arrow__8-to-rectangle {
+    position: absolute;
+    background-image: url("/images/sld3/arrow.png");
+    background-repeat: no-repeat;
+    width: 4px;
+    background-position: bottom;
+}
+
+.tab2 .arrow__1-to-rectangle,
+.tab2 .arrow__2-to-rectangle,
+.tab2 .arrow__3-to-rectangle {
+    height: 30px;
+    bottom: -30px;
+    left: 28px;
+}
+
+.tab2 .arrow__5-to-rectangle,
+.tab2 .arrow__6-to-rectangle,
+.tab2 .arrow__7-to-rectangle {
+    height: 30px;
+    transform: rotate(180deg);
+    top: -30px;
+    left: 28px;
+}
+
+.tab2 .arrow__4-to-rectangle {
+    height: 40px;
+    background-position: bottom;
+    transform: rotate(90deg);
+    top: 10px;
+    left: -22px;
+}
+
+.tab2 .arrow__8-to-rectangle {
+    height: 40px;
+    background-position: bottom;
+    transform: rotate(-90deg);
+    top: 10px;
+    right: -22px;
+}
+
+/* END THIRD SLIDE SECOND TAB */
