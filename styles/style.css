@@ -60,23 +60,23 @@ span {
     background-image: url("../images/bg.png");
     background-position: center;
     background-size: cover;
-    --n: 1;
-    overflow-x: hidden;
+    /* --n: 1; */
+    overflow: hidden;
     /* height: 100%; */
-    height: calc(var(--n)*100%);
+    /* height: calc(var(--n)*100%); */
     /* transform: translate(0, calc(var(--ty, 0px) + var(--i, 0)/var(--n)*-100%)); */
 }
 
-.slide section {
+/* .slide section {
     height: 100%;
     height: calc(100%/var(--n));
-    /* user-select: none;
-    pointer-events: none; */
-}
+    user-select: none;
+    pointer-events: none;
+} */
 
-.smooth {
+/* .smooth {
   transition: transform .5s ease-out;
-}
+} */
 
 
 .slide__navigation {
@@ -87,12 +87,21 @@ span {
     flex-direction: column;
 }
 
-.slide__navigation > a {
+.slide__navigation-button {
     background-color: #fff;
     width: 13px;
     height: 13px;
+    border: none;
     border-radius: 7px;
     margin-bottom: 7px;
+}
+
+.slide__navigation-button:focus {
+    outline: 0;
+}
+
+.slide__navigation-button.active {
+    background-color: #f78b1f;
 }
 
 .slide__page-down {
@@ -650,6 +659,24 @@ input[type=range]::-webkit-slider-thumb {
     background-image: url("/images/sld3/renal.png");
 }
 
+.tract > .scheme__circle {
+    background-image: url("/images/sld3/tract.png");
+}
+
+.stomach > .scheme__circle {
+    background-image: url("/images/sld3/stomach.png");
+}
+
+.infection > .scheme__circle {
+    background-image: url("/images/sld3/infection.png");
+}
+
+
+
+.stomach > .scheme__circle {
+    background-image: url("/images/sld3/stomach.png");
+}
+
 .tab2 .musle > .scheme__circle {
     background-size: 56px 36px;
 }
@@ -752,7 +779,7 @@ input[type=range]::-webkit-slider-thumb {
     text-align: left;
 }
 .tab2 .renal .scheme__elem-title {
-    text-align: left;
+    text-align: right;
 }
 
 .tab2 .lipocells .scheme__elem-wrap {
@@ -860,6 +887,73 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 /* END THIRD SLIDE SECOND TAB */
+
+/* THIRD SLIDE THIRD TAB */
+
+.tab3 .scheme__circle {
+    width: 60px;
+    height: 60px;
+}
+
+.tab3 .scheme__elem-title {
+    font-size: 20px;
+}
+
+.scheme__leftside {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.scheme__leftside .scheme__elem {
+    width: 300px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin-top: 15px;
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.scheme__leftside .scheme__elem-title {
+    text-align: right;
+}
+
+.scheme__leftside .scheme__elem-wrap {
+    max-width: 240px;
+}
+
+.scheme__leftside .scheme__elem-wrap .scheme__number {
+    line-height: 36px;
+}
+
+.scheme__leftside .scheme__elem-title {
+    text-align: right;
+
+}
+
+.scheme__leftside .scheme__circle {
+    margin: 10px 0 0 10px;
+}
+
+.scheme__elem-text-with-arrow {
+    font-size: 15px;
+    width: 100%;
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.scheme__middleside {
+
+}
+
+.scheme__rigthside {
+
+}
+
+/* END THIRD SLIDE THIRD TAB */
 
 .tab1__ice1,
 .tab1__ice2,
