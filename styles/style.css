@@ -13,21 +13,18 @@
     src: url("/styles/fonts/Lato/Lato-Medium.woff");
 }
 
-
 html,
 body {
     margin: 0;
     padding: 0;
 }
 
-*{
-    box-sizing: border-box;
+body {
+    /* overflow-y: hidden; */
 }
 
-.slide {
-    background-image: url("../images/bg.png");
-    background-position: center;
-    background-size: cover; */
+*{
+    box-sizing: border-box;
 }
 
 h1,
@@ -58,6 +55,29 @@ span {
     font-family: "Lato", sans-serif;
     font-weight: normal;
 }
+
+.slide {
+    background-image: url("../images/bg.png");
+    background-position: center;
+    background-size: cover;
+    --n: 1;
+    overflow-x: hidden;
+    /* height: 100%; */
+    height: calc(var(--n)*100%);
+    /* transform: translate(0, calc(var(--ty, 0px) + var(--i, 0)/var(--n)*-100%)); */
+}
+
+.slide section {
+    height: 100%;
+    height: calc(100%/var(--n));
+    /* user-select: none;
+    pointer-events: none; */
+}
+
+.smooth {
+  transition: transform .5s ease-out;
+}
+
 
 .slide__navigation {
     position: fixed;
@@ -261,10 +281,6 @@ span {
     left: -68px;
 }
 
-/* .slide__second {
-
-} */
-
 .slide__second-wrapper {
     display: flex;
     justify-content: center;
@@ -329,7 +345,7 @@ span {
 .slide__third-wrapper {
     display: flex;
     flex-flow: row nowrap;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .tab {
@@ -724,7 +740,6 @@ input[type=range]::-webkit-slider-thumb {
 .tab2 .scheme__elem.lipocells {
     order: 6;
     text-align: left;
-    /* margin-left: 40px; */
 }
 
 .tab2 .scheme__elem.renal {
