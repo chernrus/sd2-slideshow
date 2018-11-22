@@ -1,5 +1,8 @@
 "use strict;"
 
+const swipe = require('./swipe'),
+    _parallax = require('./parallax');
+
 /**
  * moveTabs - переключение между вкладками
  * @param {type} offset Description
@@ -9,7 +12,6 @@ const parallax = document.querySelector('.slide__second-wrapper'),
 
     moveTabs = (offset) => {
         const tabs = document.querySelectorAll('.tab');
-
 
         tabs.forEach((tab) => {
             tab.style.transition = "1s"
@@ -104,10 +106,6 @@ document.addEventListener('DOMContentLoaded', function(){
   setValue(0,false);
 })
 
-
-
-window.onscroll = slideParalax;
-
 const _C = document.querySelector('.slide'),
       N = 3;
 
@@ -115,71 +113,73 @@ let i = 0, y0 = null, locked = false, dif = null, position = 0;
 
 function unify(e) {	return e.changedTouches ? e.changedTouches[0] : e };
 
-function lock(e) {
+function getPosition(e) {
     y0 = unify(e).clientY;
-    // position = e.offsetTop;
-    console.log(e);
-	// _C.classList.toggle('smooth', !(locked = true))
-    console.log('touchstart');
 };
 
 function drag(e) {
-    console.log('move');
-	// e.preventDefault();
-// // slideParalax();
-    console.log(`${Math.round(unify(e).clientY- y0)}px`);
-    // dif = Math.round(unify(e).clientY- y0) > 0 ?  : 768;
-    if(Math.round(unify(e).clientY- y0) > 50) {
+    console.log();
+    const touchTrack = Math.round(unify(e).clientY- y0);
+    if(touchTrack > 40 && position > 0) {
         dif = -768;
+        console.log('-');
     }
-    else if (Math.round(unify(e).clientY- y0) < -50 ) {
+    else if (touchTrack < -40 && position < 768*(N-1)) {
         dif = 768;
+        console.log('+');
     }
     else {
         dif = 0;
     }
-// 	// if(locked)
-// 		// _C.style.setProperty('--ty', `${Math.round(unify(e).clientY- y0)}px`)
 };
 
-function move(e) {
-    console.log('touchend');
-    let dy = unify(e).clientY - y0, s = Math.sign(dy);
-    console.log(position);
-
-    window.scrollTo({
-        top: position+dif,
-        behavior: 'smooth'
-    });
-
+function move() {
+    //
+    // window.scrollTo({
+    //     top: position+dif,
+    //     behavior: 'smooth'
+    // });
+    //
     position = position + dif;
-  // if(locked) {
-  //   let dy = unify(e).clientY - y0, s = Math.sign(dy);
-  //   console.log(dy);
-  //   //
-  //   // if((i > 0 || s < 0) && (i < N - 1 || s > 0))
-  //   //   _C.style.setProperty('--i', i -= s);
-  //   // _C.style.setProperty('--ty', '0px');
-  //   // _C.classList.toggle('smooth', !(locked = false));
-  //   // y0 = null;
-  //
-  //   window.scrollTo({
-  //     top: dy+768,
-  //     behavior: 'smooth'
-  //   });
-  // }
+
+    goTo(null, position);
 
 };
+
+const setActiveButton = (index) => {
+        const navButtons = document.querySelectorAll(".slide__navigation-button");
+
+        navButtons.forEach((btn) => {
+            btn.classList.remove('active');
+        });
+        navButtons[index].classList.add('active');
+    },
+
+    goTo = (index, pos) => {
+        position = pos || 768 * index;
+        window.scrollTo({
+            top: position,
+            behavior: 'smooth'
+        });
+
+        index = index || position/768;
+        setActiveButton(index);
+    };
 
 _C.style.setProperty('--n', N);
 
-_C.addEventListener('mousedown', lock, false);
-_C.addEventListener('touchstart', lock, false);
+// _C.addEventListener('mousedown', getPosition, false);
+_C.addEventListener('touchstart', getPosition, false);
 
-_C.addEventListener('mousemove', drag, false);
+// _C.addEventListener('mousemove', drag, false);
 _C.addEventListener('touchmove', drag, false);
 
-_C.addEventListener('mouseup', move, false);
+// _C.addEventListener('mouseup', move, false);
 _C.addEventListener('touchend', move, false);
 
+window.onscroll = slideParalax;
+
+goTo(2);
+
 exports.showValue = showValue;
+exports.goTo = goTo;
