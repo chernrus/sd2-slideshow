@@ -79,6 +79,14 @@ span {
 } */
 
 
+.scheme__arrow {
+    position: absolute;
+    background-image: url("/images/sld3/arrow.png");
+    background-repeat: no-repeat;
+    width: 4px;
+    background-position: bottom;
+}
+
 .slide__navigation {
     position: fixed;
     bottom: 50%;
@@ -363,7 +371,11 @@ span {
     width: 1024px;
     height: 768px;
     flex: 0 0 100%;
-    padding: 110px 86px;
+    padding: 110px 0;
+}
+
+.tab__title {
+    margin-left: 86px;
 }
 
 /* SLIDER */
@@ -411,7 +423,7 @@ to provide a positioning context for the range input and other elements.*/
     height: 56px;
     background-image: url("/images/sld3/slider.png");
     background-size: 43px 56px;
-    background-position: 0px -5px;
+    background-position: 0px 0px;
     background-repeat: no-repeat;
     background-color: transparent;
     position: absolute;
@@ -577,7 +589,6 @@ input[type=range]::-webkit-slider-thumb {
     width: 4px;
     height: 200px;
     position: absolute;
-    background: url(/images/sld3/arrow.png) no-repeat;
     background-position: bottom;
     transform: rotate(45deg);
     left: 173px;
@@ -588,7 +599,6 @@ input[type=range]::-webkit-slider-thumb {
     width: 4px;
     height: 200px;
     position: absolute;
-    background: url(/images/sld3/arrow.png) no-repeat;
     background-position: bottom;
     transform: rotate(-45deg);
     right: 173px;
@@ -599,7 +609,6 @@ input[type=range]::-webkit-slider-thumb {
     width: 4px;
     height: 60px;
     position: absolute;
-    background: url(/images/sld3/arrow.png) no-repeat;
     background-position: bottom;
     right: 50%;
     bottom: -70px;
@@ -609,7 +618,6 @@ input[type=range]::-webkit-slider-thumb {
     width: 4px;
     height: 60px;
     position: absolute;
-    background: url(/images/sld3/arrow.png) no-repeat;
     background-position: bottom;
     transform: rotate(-90deg);
     bottom: 10px;
@@ -620,7 +628,6 @@ input[type=range]::-webkit-slider-thumb {
     width: 4px;
     height: 60px;
     position: absolute;
-    background: url(/images/sld3/arrow.png) no-repeat;
     background-position: bottom;
     transform: rotate(90deg);
     bottom: 10px;
@@ -838,7 +845,7 @@ input[type=range]::-webkit-slider-thumb {
     position: relative;
 }
 
-.tab2 .arrow__1-to-rectangle,
+/* .tab2 .arrow__1-to-rectangle,
 .tab2 .arrow__2-to-rectangle,
 .tab2 .arrow__3-to-rectangle,
 .tab2 .arrow__4-to-rectangle,
@@ -851,7 +858,7 @@ input[type=range]::-webkit-slider-thumb {
     background-repeat: no-repeat;
     width: 4px;
     background-position: bottom;
-}
+} */
 
 .tab2 .arrow__1-to-rectangle,
 .tab2 .arrow__2-to-rectangle,
@@ -890,9 +897,16 @@ input[type=range]::-webkit-slider-thumb {
 
 /* THIRD SLIDE THIRD TAB */
 
+.tab3 .scheme {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
 .tab3 .scheme__circle {
     width: 60px;
     height: 60px;
+    margin: 0 10px;
 }
 
 .tab3 .scheme__elem-title {
@@ -903,11 +917,13 @@ input[type=range]::-webkit-slider-thumb {
     width: 300px;
     display: flex;
     flex-direction: column;
+    margin-top: 75px;
 }
 
-.scheme__leftside .scheme__elem {
+.scheme__leftside .scheme__elem,
+.scheme__middleside .renal {
     width: 300px;
-    height: 100px;
+    height: 80px;
     display: flex;
     flex-direction: row;
     align-self: center;
@@ -916,24 +932,23 @@ input[type=range]::-webkit-slider-thumb {
     justify-content: flex-end;
 }
 
-.scheme__leftside .scheme__elem-title {
+.scheme__leftside .scheme__elem-title,
+.scheme__middleside .renal .scheme__elem-title {
     text-align: right;
 }
 
-.scheme__leftside .scheme__elem-wrap {
-    max-width: 240px;
+.scheme__leftside .scheme__elem-wrap,
+.scheme__middleside .renal  {
+    max-width: 220px;
 }
 
-.scheme__leftside .scheme__elem-wrap .scheme__number {
+.scheme__leftside .scheme__elem-wrap .scheme__number,
+.scheme__middleside .renal .scheme__number {
     line-height: 36px;
 }
 
-.scheme__leftside .scheme__elem-title {
-    text-align: right;
-
-}
-
-.scheme__leftside .scheme__circle {
+.scheme__leftside .scheme__circle
+.scheme__middleside .renal .scheme__circle {
     margin: 10px 0 0 10px;
 }
 
@@ -943,16 +958,309 @@ input[type=range]::-webkit-slider-thumb {
     text-align: right;
     margin-top: 20px;
     margin-bottom: 20px;
+    position: relative;
+}
+
+.scheme__elem-text-with-arrow.amilin p {
+    text-align: right;
+    margin: 0 10px;
+    font-size: 15px;
 }
 
 .scheme__middleside {
-
+    width: 350px;
+    height: 470px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 8px 15px;
 }
 
-.scheme__rigthside {
-
+.scheme__middleside .betacells {
+    flex: 1 100%;
+    height: 120px;
 }
 
+.scheme__middleside .betacells .scheme__circle {
+    width: 82px;
+    height: 82px;
+    margin: 0 auto;
+}
+
+.scheme__middleside .betacells .scheme__elem-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.scheme__middleside .betacells .scheme__elem-number,
+.scheme__middleside .betacells .scheme__elem-title {
+    line-height: 36px;
+}
+
+.scheme__middleside .betacells .scheme__elem-title {
+    margin: 0 0 0 15px;
+}
+
+.scheme__middleside .effect,
+.scheme__middleside .defect {
+    flex: 2;
+}
+
+.scheme__middleside .scheme__elem-text-with-arrow {
+    flex: 1 100%;
+    align-self: end;
+    position: relative;
+}
+
+.scheme__elem-text-with-arrow.glukagon p {
+    text-align: right;
+    margin: 0 78px 0 0;
+    font-size: 15px;
+}
+
+.scheme__middleside .scheme__text-elem {
+    text-align: center;
+    flex: 1 100%;
+    margin-top: 10px;
+    position: relative;
+}
+
+
+.scheme__middleside .scheme__text-elem > p {
+    text-align: center;
+    font-size: 25px;
+    line-height: 1;
+    margin: 0;
+}
+
+
+.scheme__middleside .effect {
+    margin-right: 26px;
+}
+
+.scheme__middleside .effect,
+.scheme__middleside .defect {
+    max-height: 90px;
+    margin-top: 75px;
+}
+
+.scheme__middleside .effect,
+.scheme__middleside .effect .scheme__elem-title {
+    text-align: right;
+}
+
+.scheme__middleside .defect,
+.scheme__middleside .defect .scheme__elem-title {
+    text-align: left;
+}
+
+.scheme__middleside .renal {
+    justify-content: start;
+    padding: 25px 12px;
+}
+
+.scheme__rightside {
+    width: 260px;
+    margin-top: 75px;
+}
+
+.scheme__rightside .scheme__elem {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-self: center;
+    margin-top: 15px;
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.scheme__rightside .scheme__elem-title {
+    text-align: left;
+}
+
+.scheme__rightside .scheme__elem-wrap {
+    max-width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.scheme__rightside .scheme__elem-wrap .scheme__number {
+    line-height: 36px;
+}
+
+
+.scheme__elem-container {
+    width: 260px;
+    height: 325px;
+    position: relative;
+    margin-top: 25px;
+    padding: 20px 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    background: linear-gradient(160deg, rgba(255,255,255,0.2), rgba(255,255,255,0) 55%);
+}
+
+.tab3 .liver .scheme__circle {
+    background-size: 45px 40px;
+}
+
+.tab3 .musle .scheme__circle {
+    background-size: 56px 36px;
+}
+
+.scheme__elem-container-title {
+    font-size: 15px;
+    text-align: center;
+    margin: 0;
+}
+
+.tab3 .arrow__8-to-1 {
+    height: 120px;
+    transform: rotate(-100deg);
+    top: -40px;
+    right: -70px;
+}
+
+.tab3 .arrow__9-to-1 {
+    height: 160px;
+    transform: rotate(-118deg);
+    top: -100px;
+    right: -75px;
+}
+
+.tab3 .arrow__amilin-to-10  {
+    height: 23px;
+    right: 37px;
+    top: 25px;
+}
+
+.tab3 .arrow__amilin-to-gyper {
+    height: 110px;
+    transform: rotate(-66deg);
+    right: -44px;
+    top: -3px;
+}
+
+.tab3 .arrow__10-to-gyper {
+    height: 90px;
+    transform: rotate(-90deg);
+    right: -48px;
+    top: -12px;
+}
+
+.tab3 .arrow__1-to-8 {
+    height: 120px;
+    transform: rotate(80deg);
+    top: 30px;
+    left: 48px;
+}
+
+.tab3 .arrow__1-to-9 {
+    height: 160px;
+    transform: rotate(62deg);
+    left: 50px;
+    top: 70px;
+}
+
+.tab3 .arrow__1-to-amilin {
+    height: 145px;
+    width: 185px;
+    left: -50px;
+    top: 125px;
+    background-image: url(/images/sld3/arrow1-amilin.png);
+}
+
+.tab3 .arrow__1-to-2  {
+    height: 60px;
+    left: 153px;
+    top: 133px;
+}
+
+.tab3 .arrow__1-to-gyper {
+    height: 220px;
+    left: 174px;
+    top: 130px;
+}
+
+.tab3 .arrow__1-to-3 {
+    height: 60px;
+    left: 196px;
+    top: 133px;
+}
+
+.tab3 .arrow__1-to-container {
+    height: 160px;
+    transform: rotate(-62deg);
+    right: 50px;
+    top: 70px;
+}
+
+.tab3 .arrow__1-to-7 {
+    height: 120px;
+    transform: rotate(-80deg);
+    top: 30px;
+    right: 48px;
+}
+
+.tab3 .arrow__2-to-gyper {
+    height: 60px;
+    left: 152px;
+    top: 95px;
+}
+
+.tab3 .arrow__3-to-glukagon {
+    height: 21px;
+    left: 9px;
+    top: 76px;
+}
+
+.tab3 .arrow__glukagon-to-gyper {
+    height: 21px;
+    left: 196px;
+    top: 24px;
+}
+
+.tab3 .arrow__gyper-to-11 {
+    height: 30px;
+    left: 185px;
+    top: 27px;
+}
+
+.tab3 .arrow__11-to-gyper {
+    height: 30px;
+    transform: rotate(180deg);
+    left: 98px;
+    top: -15px;
+}
+
+.tab3 .arrow__7-to-1 {
+    height: 120px;
+    transform: rotate(100deg);
+    top: -40px;
+    left: -70px;
+}
+
+.tab3 .arrow__container-to-1 {
+    height: 160px;
+    transform: rotate(118deg);
+    top: -100px;
+    left: -75px;
+}
+
+.tab3 .arrow__7-to-container {
+    height: 25px;
+    left: 95px;
+    top: 66px;
+}
+
+.tab3 .arrow__container-to-7 {
+    height: 25px;
+    transform: rotate(180deg);
+    left: 81px;
+    top: -36px;
+}
 /* END THIRD SLIDE THIRD TAB */
 
 .tab1__ice1,
