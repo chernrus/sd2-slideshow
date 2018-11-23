@@ -86,7 +86,7 @@ const _C = document.querySelector('.slide'),
         });
         console.log(dif, index, position);
         index = index || position/768;
-        if(index == 2) {
+        if(index != 0) {
             hidePageDownArrow();
         }
         else {
