@@ -99,7 +99,6 @@ const parallax = document.querySelector('.slide__second-wrapper'),
     slideParalax = () => {
         const windowYOffset = window.pageYOffset;
     	parallax.style.top = (-windowYOffset * .5 + 400) + "px";
-        // console.log(windowYOffset, parallax.style.top);
     };
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -118,15 +117,12 @@ function getPosition(e) {
 };
 
 function drag(e) {
-    console.log();
     const touchTrack = Math.round(unify(e).clientY- y0);
     if(touchTrack > 40 && position > 0) {
         dif = -768;
-        console.log('-');
     }
     else if (touchTrack < -40 && position < 768*(N-1)) {
         dif = 768;
-        console.log('+');
     }
     else {
         dif = 0;
@@ -134,19 +130,22 @@ function drag(e) {
 };
 
 function move() {
-    //
-    // window.scrollTo({
-    //     top: position+dif,
-    //     behavior: 'smooth'
-    // });
-    //
+
     position = position + dif;
 
     goTo(null, position);
-
 };
 
-const setActiveButton = (index) => {
+const
+    hidePageDownArrow = () => {
+        document.querySelector('.slide__page-down').style.display = 'none';
+    },
+
+    showPageDownArrow = () => {
+        document.querySelector('.slide__page-down').style.display = 'block';
+    },
+
+    setActiveButton = (index) => {
         const navButtons = document.querySelectorAll(".slide__navigation-button");
 
         navButtons.forEach((btn) => {
@@ -163,6 +162,12 @@ const setActiveButton = (index) => {
         });
 
         index = index || position/768;
+        if(index == 2) {
+            hidePageDownArrow();
+        }
+        else {
+            showPageDownArrow();
+        }
         setActiveButton(index);
     };
 
@@ -179,7 +184,7 @@ _C.addEventListener('touchend', move, false);
 
 window.onscroll = slideParalax;
 
-goTo(2);
+goTo(0);
 
 exports.showValue = showValue;
 exports.goTo = goTo;
