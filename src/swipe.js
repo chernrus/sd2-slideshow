@@ -38,7 +38,6 @@ const _C = document.querySelector('.slide'),
      * @param {object} e event element
      */
     move = (e) => {
-        console.log(dif != 0 && e.target.nodeName != 'BUTTON');
         if (dif != 0 && e.target.nodeName != 'BUTTON') {
             position = Math.abs(position + dif);
             goTo(null, position);
@@ -84,7 +83,6 @@ const _C = document.querySelector('.slide'),
             top: position,
             behavior: 'smooth'
         });
-        console.log(dif, index, position);
         index = index || position/768;
         if(index != 0) {
             hidePageDownArrow();
