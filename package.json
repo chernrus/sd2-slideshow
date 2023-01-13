@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/chernrus/sd2-slideshow#readme",
   "devDependencies": {
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "webpack": "^4.25.1"
